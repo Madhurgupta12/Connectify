@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+a{
+
+  color:black !important;
+}
+.brand-logo,h2{
+  font-family: 'Grand Hotel', cursive;
+
+}
+.aaa{
+  border:4px solid rgb(139, 97, 97);
+}
+.qq{
+  display: flex;
+  justify-content: space-between;
+  width:108%
+
+}
+.gallery{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+ 
+}
+.item{
+ border:2px solid black;
+ margin:2px;
+  width:30%
+}
+.home-card{
+  max-width:500px;
+  height:max-content;
+  margin:26px auto;
+ 
+}
