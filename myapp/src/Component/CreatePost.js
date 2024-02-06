@@ -12,7 +12,7 @@ const CreatePost = () => {
         if(url)
         {
       
-            fetch("http://localhost:5000/createpost",{
+            fetch("http://localhost:5001/createpost",{
                 method: "POST",
                 headers:{
                   "Content-type":"application/json",

@@ -14,7 +14,7 @@ const Signup = () => {
 
    
 
-    fetch("http://localhost:5000/signup",{
+    fetch("http://localhost:5001/signup",{
       method: "POST",
       headers:{
         "Content-type":"application/json"
@@ -39,6 +39,12 @@ const Signup = () => {
       console.log(data);
     })
     .catch(err=>{
+      swal({
+        text: "unsuccess Signup",
+        icon: "error",
+        buttons: false,
+        timer: 3000,
+      });
       console.log(err);
     })
     

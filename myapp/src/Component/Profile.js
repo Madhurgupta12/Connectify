@@ -6,7 +6,7 @@ const Profile = () => {
   const[pics,setpics]=useState([]);
   const {state,dispatch}=useContext(UserContext)
   useEffect(()=>{
-    fetch("http://localhost:5000/mypost",{
+    fetch("http://localhost:5001/mypost",{
      
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
