@@ -8,7 +8,7 @@ const Login = () => {
   const{state,dispatch}=useContext(UserContext);
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
-const Navigate=useNavigate();
+   const Navigate=useNavigate();
 
 
 
