@@ -90,10 +90,11 @@ const postDetails=()=>{
 }
 
   return (
+    <div className="h-screen bg-gradient-to-r from-sky-800 to-sky-400">
     <div className="flex  items-center justify-center">
        
-    <div className="border border-red-500 w-1/2 p-8 m-10 card input-filled">
-        <h2 className=" text-3xl flex justify-center">Create Post Instagram</h2>
+    <div className="border-4 border-black-500 w-1/2 p-8 m-10 card input-filled">
+        <h2 className=" text-3xl flex justify-center">Create Post Connectify</h2>
         <input type="text" placeholder="Title"  value={title}
         onChange={(e)=>{
             setTitle(e.target.value);
@@ -121,6 +122,7 @@ const postDetails=()=>{
     </div>
     <button onClick={postDetails}  className=" bg-red-300 btn waves-effect waves-light flex justify-center " type="submit" name="action">Submit post</button>
 
+    </div>
     </div>
     </div>
   )

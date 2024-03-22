@@ -34,9 +34,9 @@ const Navbar = () => {
   }
   return (
     <nav>
-    <div className="  nav-wrapper white">
+    <div className=" nav-wrapper blue">
      {/* <a href="#" className="brand-logo">Madhur Media</a> */}
-     <li className="brand-logo"><Link to={state?"/":"/signin"}>Instagram</Link></li>
+     <li className="brand-logo"><Link to={state?"/":"/signin"}>Connectify</Link></li>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         {renderlist()}
 
