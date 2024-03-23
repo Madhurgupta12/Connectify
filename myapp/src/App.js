@@ -7,7 +7,7 @@ import Profile from "./Component/Profile"
 import Signup from './Component/Signup';
 import CreatePost from "./Component/CreatePost"
 import {reducer,initialState} from "./reducers/userReducer"
-
+import Reel from "./Component/Reel"
 
 export const UserContext=createContext();
 
@@ -34,6 +34,7 @@ const Routing=()=>{
   <Route path="/signup" element={<Signup></Signup>}></Route>
   <Route path="/profile" element={<Profile></Profile>}></Route>
   <Route path="/createpost" element={<CreatePost></CreatePost>}></Route>
+  <Route path="/reel" element={<Reel></Reel>}></Route>
   </Routes>
   );
 
