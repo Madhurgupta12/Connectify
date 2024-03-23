@@ -4,11 +4,82 @@ import swal from "sweetalert"
 import {Link,useNavigate} from "react-router-dom"
 import {useState,useEffect} from "react"
 import {UserContext} from "../App"
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 const Login = () => {
+
   const{state,dispatch}=useContext(UserContext);
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
    const Navigate=useNavigate();
+
+   const firebaseConfig = {
+    apiKey: "AIzaSyBSNZ3ZAnLe8qJa5EyJAYnJ3tm8LlCk5MM",
+    authDomain: "connectify-e7580.firebaseapp.com",
+    projectId: "connectify-e7580",
+  };
+  firebase.initializeApp(firebaseConfig);
+
+
+   const handleSignIn = async() => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const nn=user.displayName;
+        const em=user.email;
+        const pp=user.uid;
+        fetch("http://localhost:5001/google",{
+          method: "POST",
+          headers:{
+          "Content-Type": "application/json"
+          },
+          body:JSON.stringify({
+          name:nn,email:em,password:pp
+          })
+          
+        }).then(res=>res.json())
+        .then(result=>{
+        
+          if(result.success==false)
+          {
+            swal({
+              text: "Unsuccessful response",
+              icon: "error",
+              buttons: false,
+              timer: 3000,
+            });
+          }
+          else
+          {
+          swal({
+            text: "Successfully SignIn",
+            icon: "success",
+            buttons: false,
+            timer: 3000,
+
+          });
+          // console.log(data);
+          // console.log(JSON.stringify(data.user));
+          
+          localStorage.setItem("jwt",result.token);
+          localStorage.setItem("user",JSON.stringify(result.user));
+         dispatch({type:"USER",payload:result.user})
+          Navigate("/");
+        }
+        })
+        .catch(err=>{
+        
+          console.log(err);
+        })
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Sign-in error:', errorCode, errorMessage);
+      });
+  }
 
 
 const postData=()=>{
@@ -19,7 +90,7 @@ fetch("http://localhost:5001/signin",{
   "Content-Type": "application/json"
   },
   body:JSON.stringify({
- email,password
+   email:email,password:password
   })
   
 }).then(res=>res.json())
@@ -42,7 +113,7 @@ fetch("http://localhost:5001/signin",{
     buttons: false,
     timer: 3000,
   });
-  //console.log(data);
+  // console.log(data);
   // console.log(JSON.stringify(data.user));
   
   localStorage.setItem("jwt",data.token);
@@ -87,6 +158,14 @@ dispatch({type:"USER",payload:data.user})
     <h5 className="mt-3 text-center">
       <Link to="/signup" className="text-blue-400 text-lg">Don't have an account? Sign up</Link>
     </h5>
+    <button 
+       onClick={()=>handleSignIn()} 
+      className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      type="submit"
+    >
+      Sign Up with Google
+    </button>
+
   </div>
 </div>
 </div>
