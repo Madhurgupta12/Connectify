@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import ReactPlayer from 'react-player';
+import "./style.css"
 const VideoUploader = () => {
   const [video, setVideo] = useState(null);
   const [uploadedUrl, setUploadedUrl] = useState('');
@@ -27,16 +28,33 @@ const VideoUploader = () => {
   };
 
   return (
-    <div>
+    <div className="aa">
       <input type="file" onChange={handleChange} />
       <button onClick={handleUpload}>Upload Video</button>
-      {uploadedUrl && (
-        <div>
-          <p>Video uploaded successfully!</p>
-          <h1>{uploadedUrl}</h1>
-          <video src={uploadedUrl} />
+      
+        <div className=" max-w-md mx-auto border rounded-lg overflow-hidden shadow-lg bg-gray-200" > 
+        <h1>{uploadedUrl}</h1>
+          <ReactPlayer className=""
+        url="https://res.cloudinary.com/dr81x5wpk/video/upload/v1711215778/wacjlaaol0nws9wnjcyb.mp4"
+        controls={true}
+        preload={true} 
+       
+      />
         </div>
-      )}
+        <br />
+        <br />
+        <div className=" max-w-md mx-auto border rounded-lg overflow-hidden shadow-lg bg-gray-200" > 
+        <h1>{uploadedUrl}</h1>
+          <ReactPlayer className=""
+        url="https://res.cloudinary.com/dr81x5wpk/video/upload/v1711215778/wacjlaaol0nws9wnjcyb.mp4"
+        controls={true}
+        preload={true} 
+       
+      />
+        </div>
+         
+        
+      
     </div>
   );
 };
