@@ -8,7 +8,7 @@ import Signup from './Component/Signup';
 import CreatePost from "./Component/CreatePost"
 import {reducer,initialState} from "./reducers/userReducer"
 import Reel from "./Component/Reel"
-
+import CreateReelForm from './Component/CreateReel';
 export const UserContext=createContext();
 
 const Routing=()=>{
@@ -35,6 +35,7 @@ const Routing=()=>{
   <Route path="/profile" element={<Profile></Profile>}></Route>
   <Route path="/createpost" element={<CreatePost></CreatePost>}></Route>
   <Route path="/reel" element={<Reel></Reel>}></Route>
+  <Route path="/upload" element={<CreateReelForm></CreateReelForm>}></Route>
   </Routes>
   );
 
