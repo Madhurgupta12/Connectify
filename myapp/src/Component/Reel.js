@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
-import "./style.css"
+
 const VideoUploader = () => {
   const [video, setVideo] = useState(null);
   const [uploadedUrl, setUploadedUrl] = useState('');
