@@ -4,14 +4,16 @@ import swal from "sweetalert"
 import {Link,useNavigate} from "react-router-dom"
 import {useState,useEffect} from "react"
 import {UserContext} from "../App"
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import firebase from "firebase/compat/app"
+import "firebase/compat/auth"
 const Login = () => {
 
   const{state,dispatch}=useContext(UserContext);
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
    const Navigate=useNavigate();
+
+  
 
    const firebaseConfig = {
     apiKey: "AIzaSyBSNZ3ZAnLe8qJa5EyJAYnJ3tm8LlCk5MM",
