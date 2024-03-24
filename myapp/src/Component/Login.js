@@ -13,10 +13,14 @@ const Login = () => {
   const[password,setPassword]=useState("");
    const Navigate=useNavigate();
 
-   const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyBSNZ3ZAnLe8qJa5EyJAYnJ3tm8LlCk5MM",
     authDomain: "connectify-e7580.firebaseapp.com",
     projectId: "connectify-e7580",
+    storageBucket: "connectify-e7580.appspot.com",
+    messagingSenderId: "175406213064",
+    appId: "1:175406213064:web:3811ba4cec9e26a6e3c2fd",
+    measurementId: "G-9B1HLRVVB7"
   };
   firebase.initializeApp(firebaseConfig);
 

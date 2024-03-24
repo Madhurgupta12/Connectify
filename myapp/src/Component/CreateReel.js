@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Swal from 'sweetalert2';
+import swal from 'sweetalert'
 
 const CreateReelForm = () => {
   const [title, setTitle] = useState('');
@@ -22,6 +23,66 @@ const CreateReelForm = () => {
     });
   };
 
+
+ 
+  // useEffect(() =>{
+
+  //   if(url)
+  //   {
+  
+  //       fetch("http://localhost:5001/reel",{
+  //           method: "POST",
+  //           headers:{
+  //             "Content-type":"application/json",
+  //             "Authorization": "Bearer "+localStorage.getItem("jwt")
+  //           },
+  //           body:JSON.stringify({
+  //            title:title,
+  //            url:url
+  //           })
+      
+      
+  //         }).then(res=>res.json())
+  //         .then(data=>{
+      
+  //             if(data.success==false)
+  //             {
+           
+  //                 swal({
+  //                     text:"Unsuccessful post",
+  //                     icon: "failure",
+  //                     buttons: false,
+  //                     timer: 3000,
+  //                   });
+  //         }
+  //         else
+  //         {
+  //             swal({
+  //                 text: "Successfully Create Post",
+  //                 icon: "success",
+  //                 buttons: false,
+  //                 timer: 3000,
+  //               });
+  //             console.log(data);
+  //         }
+          
+            
+  //         })
+  //         .catch(err=>{
+  //             swal({
+  //                 text:"error",
+  //                 icon: "failure",
+  //                 buttons: false,
+  //                 timer: 3000,
+  //               });
+      
+  //           console.log(err);
+  //         })
+          
+
+  //   }
+  
+  // },[url])
  
     const handleUpload = async () => {
         try {
@@ -36,6 +97,7 @@ const CreateReelForm = () => {
     
           const data = await response.json();
           setUrl(data.secure_url);
+          console.log(url);
           showSuccessAlert();
         } catch (error) {
           console.error('Error uploading video:', error);

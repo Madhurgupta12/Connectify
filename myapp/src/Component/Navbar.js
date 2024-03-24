@@ -13,6 +13,9 @@ const Navbar = () => {
       <li><Link to="/profile">Profile</Link></li>,
       <li><Link to="/createpost">CreatePost</Link></li>,
       <li>
+        <Link to="reel">Reel Section</Link>
+      </li>,
+      <li>
         <button onClick={()=>{
           localStorage.clear();
 
@@ -21,7 +24,10 @@ const Navbar = () => {
 
         }}
           className=" bg-red-600 btn waves-effect waves-light  " type="submit" name="action">Logout</button>
-      </li>
+      </li>,
+      
+      
+      
       ]
     }
     else
