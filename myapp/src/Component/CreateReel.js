@@ -85,15 +85,18 @@ const CreateReelForm = () => {
   // },[url])
  
     const handleUpload = async () => {
+      window.alert("upload started");
         try {
           const formData = new FormData();
           formData.append('file', video);
-          formData.append('upload_preset', 'Instagram Clone'); // Replace 'your_upload_preset' with your Cloudinary upload preset
-    
+          formData.append('upload_preset', 'Instagram Clone');
+          formData.append("cloud_name","dr81x5wpk")
+          showSuccessAlert();
           const response = await fetch('https://api.cloudinary.com/v1_1/dr81x5wpk/video/upload', {
             method: 'POST',
             body: formData
           });
+          
     
           const data = await response.json();
           setUrl(data.secure_url);

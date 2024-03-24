@@ -9,6 +9,7 @@ import CreatePost from "./Component/CreatePost"
 import {reducer,initialState} from "./reducers/userReducer"
 import Reel from "./Component/Reel"
 import CreateReelForm from './Component/CreateReel';
+import VideoUpload from './Component/VideoUpload';
 export const UserContext=createContext();
 
 const Routing=()=>{
@@ -36,6 +37,7 @@ const Routing=()=>{
   <Route path="/createpost" element={<CreatePost></CreatePost>}></Route>
   <Route path="/reel" element={<Reel></Reel>}></Route>
   <Route path="/upload" element={<CreateReelForm></CreateReelForm>}></Route>
+  <Route path="/check" element={<VideoUpload></VideoUpload>}></Route>
   </Routes>
   );
 
