@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-
+import React, { useState,useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 const Chat = () => {
+
+  const {id}=useParams();
+  const [title,setTitle]=useState("");
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -8,10 +11,63 @@ const Chat = () => {
     if (inputValue.trim() !== '') {
       setMessages(prevMessages => [...prevMessages, { text: inputValue, sender: 'You' }]);
       setInputValue('');
-      // Here you would typically send the message to the server
-      // and receive a response from the other user
     }
+
+    fetch("http://localhost:5001/api/message/send",{
+      method:"POST",
+      headers:{
+        "Content-type":"application/json",
+        authorization: "Bearer "+localStorage.getItem("jwt")
+      },
+      body:JSON.stringify({
+        text:title,
+        rr:id
+      })
+    })
+    .then((res)=>res.json())
+
+    .then(result=>{
+      if(result.success==true)
+      {
+console.log("success:true")
+      }
+      else
+      {
+        console.log("error")
+      }
+    })
+    .catch(err=>{
+      console.log("Error");
+    })
+    
   };
+  const check=(e)=>{
+
+    setTitle(e.target.value);
+    setInputValue(e.target.value);
+  }
+
+  
+
+  useEffect(()=>{
+    fetch(`http://localhost:5001/api/messages/${id}`,{
+      method:"GET",
+      headers:{
+        authorization: "Bearer "+localStorage.getItem("jwt"),
+        "Content-Type": "application/json"
+      }
+    })
+    .then((res)=>res.json())
+    .then((result)=>{
+      setMessages(result.data);
+
+      console.log(result);
+    })
+    .catch((err)=>{
+      console.error("error fetching");
+    })
+
+  },[])
 
 
   return (
@@ -28,7 +84,7 @@ const Chat = () => {
         <input
           type="text"
           value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+          onChange={check}
           className="flex-1 border border-gray-300 rounded-md px-3 py-2 mr-2"
           placeholder="Type your message"
         />

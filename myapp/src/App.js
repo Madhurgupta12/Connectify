@@ -41,7 +41,7 @@ const Routing=()=>{
   <Route path="/upload" element={<CreateReelForm></CreateReelForm>}></Route>
   <Route path="/check" element={<VideoUpload></VideoUpload>}></Route>
   <Route path="/search" element={<Chat></Chat>}></Route>
-  <Route path="/chat" element={<ChatBox></ChatBox>}></Route>
+  <Route path="/chat/:id" element={<ChatBox></ChatBox>}></Route>
   </Routes>
   );
 

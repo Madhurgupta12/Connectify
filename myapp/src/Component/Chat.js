@@ -2,6 +2,10 @@ import React from 'react'
 import {useEffect,useState} from "react"
 import {Link} from "react-router-dom"
 import "../Component/style.css"
+
+
+
+
 import ChatBox from './ChatBox'
 
 const Search = () => {
@@ -15,7 +19,7 @@ const Search = () => {
       method:"GET",
       headers:{
       "Content-Type": "application/json"
-      },
+      }
     })
     .then(res=>res.json())
     .then((result)=>{
@@ -47,7 +51,7 @@ const Search = () => {
       <div className="py-2 px-4 hover:bg-gray-700">
 
       
-      <Link to="/chat"><p key={index} className="text-gray-200">{items.name}</p></Link>
+      <Link to={"/chat/" + items._id} ><p key={index}  className="text-gray-200">{items.name}</p></Link>
        
 
        
