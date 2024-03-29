@@ -13,10 +13,21 @@ const Login = () => {
   const[password,setPassword]=useState("");
    const Navigate=useNavigate();
 
-   const firebaseConfig = {
-    apiKey: "AIzaSyBSNZ3ZAnLe8qJa5EyJAYnJ3tm8LlCk5MM",
-    authDomain: "connectify-e7580.firebaseapp.com",
-    projectId: "connectify-e7580",
+  const firebaseConfig = {
+    // apiKey: "AIzaSyBSNZ3ZAnLe8qJa5EyJAYnJ3tm8LlCk5MM",
+    // authDomain: "connectify-e7580.firebaseapp.com",
+    // projectId: "connectify-e7580",
+    // storageBucket: "connectify-e7580.appspot.com",
+    // messagingSenderId: "175406213064",
+    // appId: "1:175406213064:web:3811ba4cec9e26a6e3c2fd",
+    // measurementId: "G-9B1HLRVVB7"
+    apiKey: "AIzaSyARqpSL2J7X7JvcqBM_Kfd_mduB-6dZElo",
+    authDomain: "upload-9bc3b.firebaseapp.com",
+    projectId: "upload-9bc3b",
+    storageBucket: "upload-9bc3b.appspot.com",
+    messagingSenderId: "292933174222",
+    appId: "1:292933174222:web:5bd573c2702adac073a19f",
+    measurementId: "G-TTY7D79HVB"
   };
   firebase.initializeApp(firebaseConfig);
 
