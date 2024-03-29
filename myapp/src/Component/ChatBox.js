@@ -1,14 +1,21 @@
 import React, { useState,useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import io from 'socket.io-client';
+const socket = io('http://localhost:8000');
 const Chat = () => {
 
+  
   const {id}=useParams();
   const [title,setTitle]=useState("");
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
+
+ 
+
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
+      socket.emit('chat message', { message: inputValue, receiverId: id });
       setMessages(prevMessages => [...prevMessages, { text: inputValue, sender: 'You' }]);
       setInputValue('');
     }
