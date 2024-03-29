@@ -60,8 +60,9 @@ console.log("success:true")
     .then((res)=>res.json())
     .then((result)=>{
       setMessages(result.data);
-
       console.log(result);
+
+      console.log(result.data);
     })
     .catch((err)=>{
       console.error("error fetching");
@@ -72,30 +73,33 @@ console.log("success:true")
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex-1 p-4 overflow-y-auto">
-        {messages.map((message, index) => (
-          <div key={index} className="mb-2">
-            <span className="font-bold">{message.sender}: </span>
-            <span>{message.text}</span>
-          </div>
-        ))}
-      </div>
-      <div className="p-4 flex">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={check}
-          className="flex-1 border border-gray-300 rounded-md px-3 py-2 mr-2"
-          placeholder="Type your message"
-        />
-        <button
-          onClick={handleSendMessage}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
-        >
-          Send
-        </button>
-      </div>
-    </div>
+            <div className="flex-1 p-4 overflow-y-auto">
+                {messages.map((message, index) => (
+                    <div key={index} className="mb-2 flex">
+                        <div className="rounded-lg bg-gray-200 p-2 max-w-max">
+                            <span className="font-bold">{message.sender}: </span>
+                            <span>{message.text}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="p-4 flex">
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={check}
+                    className="flex-1 border border-gray-300 rounded-md px-3 py-2 mr-2 focus:outline-none"
+                    placeholder="Type your message"
+                />
+                <button
+                    onClick={handleSendMessage}
+                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                >
+                    Send
+                </button>
+            </div>
+        </div>
+    
   );
 };
 
