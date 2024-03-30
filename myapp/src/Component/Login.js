@@ -4,6 +4,7 @@ import swal from "sweetalert"
 import {Link,useNavigate} from "react-router-dom"
 import {useState,useEffect} from "react"
 import {UserContext} from "../App"
+import ForgotPassword from "./ForgotPassword";
 import firebase from "firebase/compat/app"
 import "firebase/compat/auth"
 const Login = () => {
