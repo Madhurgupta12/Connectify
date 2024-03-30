@@ -1,14 +1,22 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState,useEffect,useRef} from 'react';
 import { useParams } from 'react-router-dom';
 import io from 'socket.io-client';
 const socket = io('http://localhost:8000');
 const Chat = () => {
 
-  
   const {id}=useParams();
+//   const {hh}=useParams();
+//   console.log(hh);
+//   let ii = hh.split('.');
+//   let id = ii[0].split('.')[1]; // Extracts '6123456789'
+// let name = ii[1].split('.')[1]; // Extracts 'example_name'
+
   const [title,setTitle]=useState("");
   const [messages, setMessages] = useState([]);
+  const [msg,Setmsg]=useState([]);
+  
   const [inputValue, setInputValue] = useState('');
+  const nnRef = useRef(null);
 
 
  
@@ -56,6 +64,7 @@ console.log("success:true")
 
   
 //f
+const cc="";
   useEffect(()=>{
     fetch(`http://localhost:5001/api/messages/${id}`,{
       method:"GET",
@@ -67,9 +76,16 @@ console.log("success:true")
     .then((res)=>res.json())
     .then((result)=>{
       setMessages(result.data);
-      console.log(result);
+      nnRef.current = result.nn;
 
-      console.log(result.data);
+      setMessages(prevMessages => [...prevMessages, ...result.data2]);
+     Setmsg(result.data2);
+      console.log(messages);
+     // console.log(result);
+
+
+
+      //console.log(result.data);
     })
     .catch((err)=>{
       console.error("error fetching");
@@ -82,11 +98,25 @@ console.log("success:true")
     <div className="flex flex-col h-screen">
             <div className="flex-1 p-4 overflow-y-auto">
                 {messages.map((message, index) => (
-                    <div key={index} className="mb-2 flex">
-                        <div className="rounded-lg bg-gray-200 p-2 max-w-max">
-                            <span className="font-bold">{message.sender}: </span>
-                            <span>{message.text}</span>
-                        </div>
+                    <div key={index} className="mb-2 ">
+                     
+                     <div className="mb-2 flex">
+    {message.sender == id ? (
+        <div className="rounded-lg bg-gray-200 p-2 max-w-max ml-auto">
+            <span className="font-bold">{"YOU"}: </span>
+            <span>{message.text}</span>
+        </div>
+    ) : (
+        <div className="rounded-lg bg-blue-200 p-2 max-w-max">
+            <span className="font-bold">{nnRef.current}:</span>
+            <span>{message.text}</span>
+        </div>
+    )}
+</div>
+
+
+
+
                     </div>
                 ))}
             </div>
