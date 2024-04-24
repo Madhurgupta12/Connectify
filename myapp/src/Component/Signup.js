@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+
+
 const Signup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");

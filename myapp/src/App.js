@@ -10,6 +10,9 @@ import {reducer,initialState} from "./reducers/userReducer"
 import Reel from "./Component/Reel"
 import CreateReelForm from './Component/CreateReel';
 import VideoUpload from './Component/VideoUpload';
+import Chat from "./Component/Chat"
+import ChatBox from './Component/ChatBox';
+import ForgotPassword from './Component/ForgotPassword';
 export const UserContext=createContext();
 
 const Routing=()=>{
@@ -25,7 +28,7 @@ const Routing=()=>{
     }
     else
     {
-      navigate("/signin");
+      navigate("/forgot-password");
     }
   },[])
   return (
@@ -38,6 +41,9 @@ const Routing=()=>{
   <Route path="/reel" element={<Reel></Reel>}></Route>
   <Route path="/upload" element={<CreateReelForm></CreateReelForm>}></Route>
   <Route path="/check" element={<VideoUpload></VideoUpload>}></Route>
+  <Route path="/search" element={<Chat></Chat>}></Route>
+  <Route path="/chat/:id" element={<ChatBox></ChatBox>}></Route>
+  <Route path="/forgot-password" element={<ForgotPassword></ForgotPassword>}></Route>
   </Routes>
   );
 

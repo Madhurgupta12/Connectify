@@ -34,7 +34,8 @@ const Navbar = () => {
     {
       return [
         <li><Link to="/signin">Signin</Link></li>,
-        <li><Link to="/signup">Signup</Link></li>
+        <li><Link to="/signup">Signup</Link></li>,
+        <li><Link to="/forgot-password">ForgotPassword</Link></li>
       ]
     }
   }
