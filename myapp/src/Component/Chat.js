@@ -34,8 +34,10 @@ const Search = () => {
   console.log(data);
   return (
     <>
-    
+    <div className="bg-orange-600">
     <div className="aa bg-red-400 flex justify-center text-2xl">Connectify-Chats</div>
+   
+    
 
   {
 
@@ -77,6 +79,7 @@ const Search = () => {
 
 
 }
+</div>
     </>
     
   )

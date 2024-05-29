@@ -136,7 +136,7 @@ fetch(`http://localhost:5001/deletepost/${postid}`,{
 
 
   return (
-    <div className="home">
+    <div className="home bg-gradient-to-r from-red-400 via-yellow-400 to-red-400">
       {data.map((item) => {
         return (
           <>

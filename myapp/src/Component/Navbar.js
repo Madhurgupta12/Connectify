@@ -3,6 +3,7 @@ import "../index.css"
 import {Link,Route,Routes,useNavigate} from "react-router-dom"
 import {useContext} from "react"
 import {UserContext} from "../App"
+
 const Navbar = () => {
   const {state,dispatch}=useContext(UserContext);
   const navigate=useNavigate();
@@ -10,11 +11,14 @@ const Navbar = () => {
     if(state)
     {
       return [
+
+
       <li><Link to="/profile">Profile</Link></li>,
       <li><Link to="/createpost">CreatePost</Link></li>,
       <li>
         <Link to="reel">Reel Section</Link>
       </li>,
+      <li><Link to="/search">Chats</Link></li>,
       <li>
         <button onClick={()=>{
           localStorage.clear();
